@@ -1,13 +1,16 @@
 import {Routes, Route} from 'react-router-dom';
-import {Home, Popular, TopRated, Upcoming} from '../pages';
+import {MovieList, MovieDetail, Search, PageNotFound} from '../pages';
 
 export const Allroutes = () => {
   return (
     <Routes>
-        <Route path='/' element={<Home />}></Route>
-        <Route path='popular' element={<Popular />}></Route>
-        <Route path='topRated' element={<TopRated />}></Route>
-        <Route path='upcoming' element={<Upcoming />}></Route>
+        <Route path='' element={<MovieList />}></Route>
+        <Route path='movie/:id' element={<MovieDetail />}></Route>
+        <Route path='popular' element={<MovieList />}></Route>
+        <Route path='topRated' element={<MovieList />}></Route>
+        <Route path='search' element={<Search />}></Route>
+        <Route path='upcoming' element={<MovieList />}></Route>
+        <Route path='*' element={<PageNotFound />}></Route>
     </Routes>
   )
 }
