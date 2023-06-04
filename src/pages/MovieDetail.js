@@ -1,7 +1,26 @@
-
+import { useEffect, useState } from "react"
+import { useParams } from "react-router-dom";
+import { MovieDetailCard } from "../components";
 
 export const MovieDetail = () => {
+  const [details, setDetails] = useState({});
+  const params = useParams();
+
+  const url = `https://api.themoviedb.org/3/movie/${params.id}?api_key=${process.env.REACT_APP_API_KEY}`
+
+  useEffect(()=>{
+    const fetchData = async() => {
+      const response = await fetch(url);
+      const movieDetail = await response.json();
+      setDetails(movieDetail);
+    }
+    fetchData()
+  },[url])
   return (
-    <main>MovieDetail</main>
+    <main>
+      <section> 
+       <MovieDetailCard key={details.id} details={details} />
+      </section>
+    </main>
   )
 }
