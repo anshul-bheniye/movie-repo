@@ -4,7 +4,7 @@ import { Card } from "../components";
 import { useFetch } from "../hooks/useFetch";
 
 export const Search = ({apiPath}) => {
-const [searchParam] = useSearchParams("query");
+const [searchParam] = useSearchParams();
 const queryName = searchParam.get("q");
 const {data: movies} =  useFetch(apiPath, queryName)
 
