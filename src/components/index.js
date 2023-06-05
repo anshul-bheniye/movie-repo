@@ -4,3 +4,5 @@ export {Card} from '../components/Card';
 export {MovieDetailCard} from '../components/MovieDetailCard';
 
 export {Footer} from '../components/Footer';
+
+export {ScrollToTop} from '../components/ScrollTotop';
