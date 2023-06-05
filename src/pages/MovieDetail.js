@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom";
 import { MovieDetailCard } from "../components";
+import { useTitle } from "../hooks";
 
 export const MovieDetail = () => {
   const [details, setDetails] = useState({});
@@ -16,6 +17,9 @@ export const MovieDetail = () => {
     }
     fetchData()
   },[url])
+
+  useTitle(`${details.title}`);
+
   return (
     <main>
       <section> 

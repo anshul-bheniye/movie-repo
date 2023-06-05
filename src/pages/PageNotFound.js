@@ -1,13 +1,16 @@
 import { useNavigate } from 'react-router-dom';
 import FourZeroFour from '../assets/pagenotfound.jpg';
- 
+import {useTitle} from '../hooks'; 
 
-export const PageNotFound = () => {
+export const PageNotFound = ({title}) => {
   const navigate = useNavigate();
 
 const handleClick = () =>{
   return navigate('/');
 }
+
+  useTitle(`${title}`)
+  
   return (
     <main>
       <div className='flex flex-col text-center items-center m-auto p-2 max-w-xl'>
